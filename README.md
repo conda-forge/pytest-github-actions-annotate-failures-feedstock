@@ -5,11 +5,9 @@ Home: https://github.com/utgwkk/pytest-github-actions-annotate-failures
 
 Package license: MIT
 
-Feedstock license: BSD-3-Clause
+Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/pytest-github-actions-annotate-failures-feedstock/blob/master/LICENSE.txt)
 
 Summary: pytest plugin to annotate failed tests with a workflow command for GitHub Actions
-
-
 
 Current build status
 ====================
