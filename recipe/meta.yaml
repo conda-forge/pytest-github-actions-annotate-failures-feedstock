@@ -1,5 +1,5 @@
 {% set name = "pytest-github-actions-annotate-failures" %}
-{% set version = "0.1.1" %}
+{% set version = "0.1.2" %}
 
 # TODO:
 # - version >0.1.0 (unreleased) includes LICENSE in sdist, remove from feedstock
@@ -10,7 +10,7 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/pytest-github-actions-annotate-failures-{{ version }}.tar.gz
-  sha256: 66445649ac8c0e1a05475faeda1679f0609a77861f9c620f68429cf6daf4ddc2
+  sha256: 9eb6ee2943ecde2078fe620af7dbf32646c0267f538435cd805fe2e8d735ca3a
 
 build:
   number: 0
@@ -20,10 +20,10 @@ build:
 requirements:
   host:
     - pip
-    - python
+    - python ==2.7|>=3.6
   run:
     - pytest >=4.0.0
-    - python
+    - python ==2.7|>=3.6
 
 test:
   imports:
