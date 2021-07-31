@@ -36,6 +36,7 @@ Installing `pytest-github-actions-annotate-failures` from the `conda-forge` chan
 
 ```
 conda config --add channels conda-forge
+conda config --set channel_priority strict
 ```
 
 Once the `conda-forge` channel has been enabled, `pytest-github-actions-annotate-failures` can be installed with:
