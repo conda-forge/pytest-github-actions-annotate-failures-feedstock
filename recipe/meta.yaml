@@ -1,15 +1,11 @@
-{% set name = "pytest-github-actions-annotate-failures" %}
-{% set version = "0.1.8" %}
-
-# TODO:
-# - version >0.1.0 (unreleased) includes LICENSE in sdist, remove from feedstock
+% set version = "0.1.8" %}
 
 package:
-  name: {{ name|lower }}
+  name: pytest-github-actions-annotate-failures
   version: {{ version }}
 
 source:
-  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/pytest-github-actions-annotate-failures-{{ version }}.tar.gz
+  url: https://pypi.io/packages/source/p/pytest-github-actions-annotate-failures/pytest-github-actions-annotate-failures-{{ version }}.tar.gz
   sha256: 2d6e6cb5f8d0aae4a27a20cc4e20fabd3199a121c57f44bc48fe28e372e0be23
 
 build:
@@ -34,7 +30,7 @@ test:
     - pip
 
 about:
-  home: https://github.com/utgwkk/pytest-github-actions-annotate-failures
+  home: https://github.com/pytest-dev/pytest-github-actions-annotate-failures
   summary: pytest plugin to annotate failed tests with a workflow command for GitHub Actions
   license: MIT
   license_file: LICENSE
