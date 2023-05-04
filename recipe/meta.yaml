@@ -1,4 +1,4 @@
-{% set version = "0.1.8" %}
+{% set version = "0.2.0" %}
 
 package:
   name: pytest-github-actions-annotate-failures
@@ -6,28 +6,34 @@ package:
 
 source:
   url: https://pypi.io/packages/source/p/pytest-github-actions-annotate-failures/pytest-github-actions-annotate-failures-{{ version }}.tar.gz
-  sha256: 2d6e6cb5f8d0aae4a27a20cc4e20fabd3199a121c57f44bc48fe28e372e0be23
+  sha256: 844ab626d389496e44f960b42f0a72cce29ae06d363426d17ea9ae1b4bef2288
 
 build:
   number: 0
   noarch: python
-  script: {{ PYTHON }} -m pip install . -vv
+  script: {{ PYTHON }} -m pip install . -vv --no-build-isolation --no-deps
 
 requirements:
   host:
     - pip
-    - python ==2.7|>=3.6
+    - python >=3.7
+    - setuptools >=64.0.0
+    - setuptools_scm >=7.0.5
   run:
     - pytest >=4.0.0
-    - python ==2.7|>=3.6
+    - python >=3.7
 
 test:
   imports:
     - pytest_github_actions_annotate_failures
   commands:
+    - pip list
+    - pip list > pip-listed.txt
+    - grep -iE "pytest-github-actions-annotate-failures\s+{{ version.replace(".", "\.") }}" pip-listed.txt
     - python -m pip check
   requires:
     - pip
+    - m2-grep  # [win]
 
 about:
   home: https://github.com/pytest-dev/pytest-github-actions-annotate-failures
