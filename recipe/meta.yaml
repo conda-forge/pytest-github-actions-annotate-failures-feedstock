@@ -11,23 +11,29 @@ source:
 build:
   number: 0
   noarch: python
-  script: {{ PYTHON }} -m pip install . -vv
+  script: {{ PYTHON }} -m pip install . -vv --no-build-isolation --no-deps
 
 requirements:
   host:
     - pip
-    - python ==2.7|>=3.6
+    - python >=3.7
+    - setuptools >=64.0.0
+    - setuptools_scm >=7.0.5
   run:
     - pytest >=4.0.0
-    - python ==2.7|>=3.6
+    - python >=3.7
 
 test:
   imports:
     - pytest_github_actions_annotate_failures
   commands:
+    - pip freeze
+    - pip freeze > pip-frozen.txt
+    - grep -iE "pytest-github-actions-annotate-failures\s+{{ version.replace(".", "\.") }}" pip-frozen.txt
     - python -m pip check
   requires:
     - pip
+    - m2-grep  # [win]
 
 about:
   home: https://github.com/pytest-dev/pytest-github-actions-annotate-failures
