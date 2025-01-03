@@ -5,23 +5,23 @@ package:
   version: {{ version }}
 
 source:
-  url: https://pypi.io/packages/source/p/pytest-github-actions-annotate-failures/pytest-github-actions-annotate-failures-{{ version }}.tar.gz
+  url: https://pypi.org/packages/source/p/pytest-github-actions-annotate-failures/pytest-github-actions-annotate-failures-{{ version }}.tar.gz
   sha256: 844ab626d389496e44f960b42f0a72cce29ae06d363426d17ea9ae1b4bef2288
 
 build:
-  number: 0
+  number: 1
   noarch: python
   script: {{ PYTHON }} -m pip install . -vv --no-build-isolation --no-deps
 
 requirements:
   host:
     - pip
-    - python >=3.7
+    - python {{ python_min }}
     - setuptools >=64.0.0
     - setuptools_scm >=7.0.5
   run:
     - pytest >=4.0.0
-    - python >=3.7
+    - python >={{ python_min }}
 
 test:
   imports:
@@ -34,6 +34,7 @@ test:
   requires:
     - pip
     - m2-grep  # [win]
+    - python {{ python_min }}
 
 about:
   home: https://github.com/pytest-dev/pytest-github-actions-annotate-failures
