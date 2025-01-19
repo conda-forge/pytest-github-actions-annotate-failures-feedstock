@@ -1,15 +1,15 @@
-{% set version = "0.2.0" %}
+{% set version = "0.3.0" %}
 
 package:
   name: pytest-github-actions-annotate-failures
   version: {{ version }}
 
 source:
-  url: https://pypi.org/packages/source/p/pytest-github-actions-annotate-failures/pytest-github-actions-annotate-failures-{{ version }}.tar.gz
-  sha256: 844ab626d389496e44f960b42f0a72cce29ae06d363426d17ea9ae1b4bef2288
+  url: https://pypi.org/packages/source/p/pytest-github-actions-annotate-failures/pytest_github_actions_annotate_failures-{{ version }}.tar.gz
+  sha256: d4c3177c98046c3900a7f8ddebb22ea54b9f6822201b5d3ab8fcdea51e010db7
 
 build:
-  number: 1
+  number: 0
   noarch: python
   script: {{ PYTHON }} -m pip install . -vv --no-build-isolation --no-deps
 
@@ -20,7 +20,7 @@ requirements:
     - setuptools >=64.0.0
     - setuptools_scm >=7.0.5
   run:
-    - pytest >=4.0.0
+    - pytest >=6.0.0
     - python >={{ python_min }}
 
 test:
