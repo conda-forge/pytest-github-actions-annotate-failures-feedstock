@@ -2,7 +2,7 @@
 schema_version: 1
 
 context:
-  version: "0.4.0"
+  version: "0.4.1"
   python_check_max: "3.14"
 
 package:
@@ -11,7 +11,7 @@ package:
 
 source:
   url: https://pypi.org/packages/source/p/pytest-github-actions-annotate-failures/pytest_github_actions_annotate_failures-${{ version }}.tar.gz
-  sha256: 77d6baa29c8c61c2dacc494fa76eb95a185f0ee61666714ac43fb12ea672d217
+  sha256: cce5ed29b57e8f454fcc4414f8c9aaa9bf8e40848cfcb444b13d7204e9fc9dcb
 
 build:
   number: 0
